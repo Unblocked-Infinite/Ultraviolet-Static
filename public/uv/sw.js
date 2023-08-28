@@ -33,7 +33,7 @@ async function modifyPageContent(response) {
       topBar.textContent = 'Back to Homepage';
       topBar.onclick = () => {
         // Redirect to the homepage
-        window.location.href = "/";
+        window.location.href = "/home.html";
       };
   
       // Add styles for the top bar
