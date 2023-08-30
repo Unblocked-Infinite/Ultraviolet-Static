@@ -25,7 +25,7 @@ async function modifyPageContent(response) {
   // Modify the HTML to inject the ad-blocking script and the improved galaxy-themed JavaScript GUI with pre-installed scripts
   const modifiedText = `
     ${text}
-    <script>
+<script>
     function createTopBar() {
       // Create the top bar element
       const topBar = document.createElement('div');
@@ -58,6 +58,13 @@ async function modifyPageContent(response) {
         "} " +
         ".top-bar:hover { " +
         "background-color: #444; " +
+        "} " +
+        "body { " +
+        "margin-top: 30px; " +
+        "} " +
+        ".main-content { " +
+        "height: calc(100% - 30px); " +
+        "overflow: auto; " +
         "}";
   
       // Append the top bar and styles to the document head
@@ -67,7 +74,7 @@ async function modifyPageContent(response) {
   
     // Call the function to create the top bar
     createTopBar();
-  </script>
+</script>
   `;
 
   const modifiedResponse = new Response(modifiedText, {
