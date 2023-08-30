@@ -60,7 +60,7 @@ async function modifyPageContent(response) {
         "background-color: #444; " +
         "} " +
         "body { " +
-        "margin-top: 30px; " +
+        "margin: 30px 0 0 0; " +
         "} " +
         ".main-content { " +
         "height: calc(100% - 30px); " +
@@ -75,6 +75,7 @@ async function modifyPageContent(response) {
     // Call the function to create the top bar
     createTopBar();
 </script>
+
   `;
 
   const modifiedResponse = new Response(modifiedText, {
